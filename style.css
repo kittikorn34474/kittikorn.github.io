@@ -1,17 +1,36 @@
+/* พื้นหลังหลัก */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(-45deg, #4facfe, #00f2fe, #ff6ec4, #7873f5);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
     color: #333;
 }
 
+/* อนิเมชั่นพื้นหลัง */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ส่วนหัว */
 header {
-    background: #4CAF50;
+    background: linear-gradient(90deg, #4facfe, #ff6ec4);
     color: white;
-    padding: 20px 0;
+    padding: 25px 0;
     text-align: center;
+    animation: slideDown 1s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
@@ -22,32 +41,74 @@ header p {
     margin: 5px 0 0;
 }
 
+/* กล่องเนื้อหา */
 section {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    background: white;
-    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    animation: fadeUp 1s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
+/* หัวข้อ */
 h2 {
-  color: #4CAF50;
+    color: #ff4fa3;
 }
+
+/* โปรเจกต์ */
 .project {
     margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(255,110,196,0.4);
 }
 
 .project h3 {
     margin: 0 0 10px;
-    color: #333;
+    color: #4facfe;
 }
+
+/* รายการ */
 ul {
-    list-style-type: square; 
+    list-style-type: square;
     padding-left: 20px;
 }
+
+/* ส่วนท้าย */
 footer {
     text-align: center;
-    padding: 10px 0;
-    background: #333; 
+    padding: 15px;
+    background: linear-gradient(90deg, #ff6ec4, #4facfe);
     color: white;
     margin-top: 20px;
+}
+
+/* เอฟเฟกต์เลื่อนลง */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* เอฟเฟกต์ค่อยๆ ลอยขึ้น */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
