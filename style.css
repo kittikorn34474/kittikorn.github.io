@@ -1,36 +1,27 @@
-/* พื้นหลังหลัก */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(-45deg, #4facfe, #00f2fe, #ff6ec4, #7873f5);
+    background: linear-gradient(-45deg, #ff9ecf, #ff69b4, #ffc0cb, #ffb6c1);
     background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
+    animation: bgMove 8s ease infinite;
     color: #333;
 }
 
-/* อนิเมชั่นพื้นหลัง */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* พื้นหลังเคลื่อนไหว */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* ส่วนหัว */
 header {
-    background: linear-gradient(90deg, #4facfe, #ff6ec4);
+    background: linear-gradient(90deg, #ff69b4, #ff1493);
     color: white;
-    padding: 25px 0;
+    padding: 20px 0;
     text-align: center;
-    animation: slideDown 1s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: fadeDown 1s ease;
 }
 
 header h1 {
@@ -41,59 +32,53 @@ header p {
     margin: 5px 0 0;
 }
 
-/* กล่องเนื้อหา */
 section {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 15px;
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
     animation: fadeUp 1s ease;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
-/* หัวข้อ */
+section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
+}
+
 h2 {
-    color: #ff4fa3;
+    color: #ff1493;
 }
 
-/* โปรเจกต์ */
 .project {
     margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 15px rgba(255,110,196,0.4);
 }
 
 .project h3 {
     margin: 0 0 10px;
-    color: #4facfe;
+    color: #ff69b4;
 }
 
-/* รายการ */
 ul {
     list-style-type: square;
     padding-left: 20px;
 }
 
-/* ส่วนท้าย */
 footer {
     text-align: center;
-    padding: 15px;
-    background: linear-gradient(90deg, #ff6ec4, #4facfe);
+    padding: 10px 0;
+    background: linear-gradient(90deg, #ff1493, #ff69b4);
     color: white;
     margin-top: 20px;
 }
 
-/* เอฟเฟกต์เลื่อนลง */
-@keyframes slideDown {
+/* Animation */
+@keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -101,11 +86,10 @@ footer {
     }
 }
 
-/* เอฟเฟกต์ค่อยๆ ลอยขึ้น */
-@keyframes fadeUp {
+@keyframes fadeDown {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
